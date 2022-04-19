@@ -161,6 +161,13 @@ document.getElementById("btnCapNhat").addEventListener("click", () => {
     .getElementById("btnCapNhat")
     .removeAttribute("data-dismiss", "modal");
 
+  if (DSNV.filter((val) => val.account == duLieuCapNhat.account).length == 0) {
+    document.getElementById("tknv").style = "border-color: red";
+    document.getElementById("tbTKNV").style.display = "block";
+    document.getElementById("tbTKNV").innerHTML =
+      "Tài khoản chưa tồn tại, vui lòng thêm mới";
+  }
+
   if (isValidate(duLieuCapNhat)) {
     const id = DSNV.find((val) => val.account == duLieuCapNhat.account).id;
     // console.log(id);
